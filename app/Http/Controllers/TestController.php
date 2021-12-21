@@ -26,6 +26,22 @@ class TestController extends Controller
 
          return back();
         // return $user;
+    }
 
+    public function update(Request $request){
+       // dd($request);
+       $user = User::find($request->user) ;
+       $user->trophies()->sync([$request->trophy]);
+
+       return $user;
+    }
+
+    public function delete(Request $request){
+        $user = User::find($request->user) ;
+        $trophyId = $request->trophy;
+
+        $user->trophies()->detach($trophyId);
+
+        return $user;
     }
 }

@@ -17,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [TestController::class, 'index']);
 Route::post('/store', [TestController::class, 'store']);
+Route::get('/delete', [TestController::class, 'delete']);
+Route::post("/update", [TestController::class, 'update']);
